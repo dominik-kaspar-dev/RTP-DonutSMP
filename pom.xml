@@ -23,8 +23,8 @@
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
         <repository>
-            <id>bstats</id>
-            <url>https://repo.bstats.org/content/repositories/releases/</url>
+            <id>jitpack</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
@@ -44,7 +44,7 @@
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>3.2.1</version>
+            <version>3.1.0</version>
         </dependency>
     </dependencies>
 
