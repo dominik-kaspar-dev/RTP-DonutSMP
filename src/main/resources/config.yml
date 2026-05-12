@@ -1,0 +1,69 @@
+settings:
+  max-tries: 20
+  global-cooldown: true
+  warmup-seconds: 5
+messages:
+  prefix: "&6[RTP]&r "
+  no-permission: "&cYou do not have permission."
+  player-only: "&cThis command can only be used by players."
+  world-not-found: "&cThat world is not configured."
+  world-disabled: "&cRTP is disabled for that world."
+  economy-missing: "&cVault economy is not available."
+  not-enough-money: "&cYou need &e{price}&c to RTP."
+  cooldown: "&cYou must wait &e{seconds}&c seconds before using RTP again."
+  warmup-actionbar: "&eTeleporting in &6{seconds}&e..."
+  warmup-cancelled: "&cTeleport cancelled."
+  teleporting: "&aSearching for a safe location..."
+  teleport-success: "&aTeleported to &e{world}&a."
+  teleport-failed: "&cCould not find a safe location. Try again."
+  reload: "&aRTP configuration reloaded."
+  set-updated: "&aUpdated &e{field}&a for &e{world}&a."
+  invalid-args: "&cUsage: /rtp set <center|radius|cooldown|price> <world> <value> | /rtp set warmup <seconds>"
+  center-usage: "&cUsage: /rtp set center <world> <here|x y z>"
+  warmup-usage: "&cUsage: /rtp set warmup <seconds>"
+worlds:
+  world:
+    enabled: true
+    display-name: "&aOverworld"
+    icon: GRASS_BLOCK
+    center:
+      x: 0.0
+      y: 64.0
+      z: 0.0
+    radius: 5000
+    cooldown: 300
+    price: 0.0
+    lore:
+      - "&7Radius: &f{radius}"
+      - "&7Price: &f{price}"
+      - "&7Cooldown: &f{cooldown}s"
+  world_nether:
+    enabled: true
+    display-name: "&cNether"
+    icon: NETHERRACK
+    center:
+      x: 0.0
+      y: 64.0
+      z: 0.0
+    radius: 3000
+    cooldown: 300
+    price: 0.0
+    lore:
+      - "&7Radius: &f{radius}"
+      - "&7Price: &f{price}"
+      - "&7Cooldown: &f{cooldown}s"
+  world_the_end:
+    enabled: true
+    display-name: "&dThe End"
+    icon: END_STONE
+    center:
+      x: 0.0
+      y: 64.0
+      z: 0.0
+    radius: 1500
+    cooldown: 300
+    price: 0.0
+    lore:
+      - "&7Radius: &f{radius}"
+      - "&7Price: &f{price}"
+      - "&7Cooldown: &f{cooldown}s"

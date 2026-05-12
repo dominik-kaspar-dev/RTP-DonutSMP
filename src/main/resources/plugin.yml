@@ -1,0 +1,19 @@
+name: RTP-DonutSMP
+main: dev.donutsmp.rtp.DonutRtpPlugin
+version: ${project.version}
+api-version: "1.21"
+author: dominik-kaspar-dev
+softdepend:
+  - Vault
+commands:
+  rtp:
+    description: Open the RTP menu or run admin actions.
+    usage: /rtp [reload|set]
+    permission: rtpdonutsmp.use
+permissions:
+  rtpdonutsmp.use:
+    description: Use /rtp and RTP menu.
+    default: true
+  rtpdonutsmp.admin:
+    description: Admin access to /rtp reload and /rtp set.
+    default: op
