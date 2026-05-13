@@ -12,13 +12,14 @@ public class WorldConfig {
     private final double centerY;
     private final double centerZ;
     private final double radius;
+    private final int maxY;
     private final long cooldown;
     private final double price;
     private final boolean enabled;
     private final List<String> lore;
 
     public WorldConfig(String key, String displayName, Material icon, double centerX, double centerY, double centerZ,
-                       double radius, long cooldown, double price, boolean enabled, List<String> lore) {
+                       double radius, int maxY, long cooldown, double price, boolean enabled, List<String> lore) {
         this.key = key;
         this.displayName = displayName;
         this.icon = icon;
@@ -26,6 +27,7 @@ public class WorldConfig {
         this.centerY = centerY;
         this.centerZ = centerZ;
         this.radius = radius;
+        this.maxY = maxY;
         this.cooldown = cooldown;
         this.price = price;
         this.enabled = enabled;
@@ -58,6 +60,10 @@ public class WorldConfig {
 
     public double getRadius() {
         return radius;
+    }
+
+    public int getMaxY() {
+        return maxY;
     }
 
     public long getCooldown() {

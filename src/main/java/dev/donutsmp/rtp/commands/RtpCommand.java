@@ -145,6 +145,18 @@ public class RtpCommand implements CommandExecutor, TabCompleter {
                 }
                 return true;
             }
+            case "max-y" -> {
+                try {
+                    int maxY = Integer.parseInt(args[3]);
+                    configManager.setWorldMaxY(worldKey, maxY);
+                    MessageUtil.send(sender, configManager.getMessage("set-updated")
+                            .replace("{field}", "max-y")
+                            .replace("{world}", worldKey), configManager);
+                } catch (NumberFormatException e) {
+                    MessageUtil.send(sender, configManager.getMessage("invalid-args"), configManager);
+                }
+                return true;
+            }
             default -> {
                 MessageUtil.send(sender, configManager.getMessage("invalid-args"), configManager);
                 return true;
@@ -193,7 +205,7 @@ public class RtpCommand implements CommandExecutor, TabCompleter {
             return filter(List.of("reload", "set"), args[0]);
         }
         if (args.length == 2 && args[0].equalsIgnoreCase("set")) {
-            return filter(List.of("center", "radius", "cooldown", "price", "warmup"), args[1]);
+            return filter(List.of("center", "radius", "cooldown", "price", "max-y", "warmup"), args[1]);
         }
         if (args.length == 3 && args[0].equalsIgnoreCase("set") && !args[1].equalsIgnoreCase("warmup")) {
             return filter(new ArrayList<>(configManager.getWorldKeys()), args[2]);

@@ -165,10 +165,7 @@ public class RtpService {
         int maxTries = configManager.getMaxTries();
         for (int i = 0; i < maxTries; i++) {
             Location candidate = randomLocation(world, config);
-            Block ground = world.getBlockAt(candidate.getBlockX(), candidate.getBlockY() - 1, candidate.getBlockZ());
-            Block feet = world.getBlockAt(candidate);
-            Block head = world.getBlockAt(candidate.getBlockX(), candidate.getBlockY() + 1, candidate.getBlockZ());
-            if (isSafeGround(ground) && isSafeAir(feet) && isSafeAir(head)) {
+            if (candidate != null) {
                 return candidate;
             }
         }
@@ -182,8 +179,28 @@ public class RtpService {
         double z = config.getCenterZ() + distance * Math.sin(angle);
         int blockX = (int) Math.floor(x);
         int blockZ = (int) Math.floor(z);
-        int y = world.getHighestBlockYAt(blockX, blockZ) + 1;
+        int y = findSafeY(world, blockX, blockZ, config.getMaxY());
+        if (y < 0) {
+            return null;
+        }
         return new Location(world, blockX + 0.5, y, blockZ + 0.5);
+    }
+
+    private int findSafeY(World world, int blockX, int blockZ, int maxY) {
+        int upper = world.getMaxHeight() - 1;
+        if (maxY > 0) {
+            upper = Math.min(upper, maxY);
+        }
+        int min = world.getMinHeight();
+        for (int y = upper; y > min; y--) {
+            Block ground = world.getBlockAt(blockX, y, blockZ);
+            Block feet = world.getBlockAt(blockX, y + 1, blockZ);
+            Block head = world.getBlockAt(blockX, y + 2, blockZ);
+            if (isSafeGround(ground) && isSafeAir(feet) && isSafeAir(head)) {
+                return y + 1;
+            }
+        }
+        return -1;
     }
 
     private boolean isSafeGround(Block block) {

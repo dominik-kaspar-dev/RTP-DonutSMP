@@ -18,7 +18,7 @@ messages:
   teleport-failed: "&cCould not find a safe location. Try again."
   reload: "&aRTP configuration reloaded."
   set-updated: "&aUpdated &e{field}&a for &e{world}&a."
-  invalid-args: "&cUsage: /rtp set <center|radius|cooldown|price> <world> <value> | /rtp set warmup <seconds>"
+  invalid-args: "&cUsage: /rtp set <center|radius|cooldown|price|max-y> <world> <value> | /rtp set warmup <seconds>"
   center-usage: "&cUsage: /rtp set center <world> <here|x y z>"
   warmup-usage: "&cUsage: /rtp set warmup <seconds>"
 worlds:
@@ -31,6 +31,7 @@ worlds:
       y: 64.0
       z: 0.0
     radius: 5000
+    max-y: 320
     cooldown: 300
     price: 0.0
     lore:
@@ -46,6 +47,7 @@ worlds:
       y: 64.0
       z: 0.0
     radius: 3000
+    max-y: 120
     cooldown: 300
     price: 0.0
     lore:
@@ -61,6 +63,7 @@ worlds:
       y: 64.0
       z: 0.0
     radius: 1500
+    max-y: 256
     cooldown: 300
     price: 0.0
     lore:

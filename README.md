@@ -14,7 +14,7 @@ RTP plugin for DonutSMP with a GUI world selector and configurable RTP settings.
 mvn -q -DskipTests package
 ```
 
-Jar output: `target/rtp-donutsmp-1.0.0.jar`
+Jar output: `target/rtp-donutsmp-1.0.1.jar`
 
 ## Commands
 

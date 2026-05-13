@@ -96,11 +96,12 @@ public class ConfigManager {
         double centerY = center != null ? center.getDouble("y", 64.0) : 64.0;
         double centerZ = center != null ? center.getDouble("z", 0.0) : 0.0;
         double radius = section.getDouble("radius", 5000.0);
+        int maxY = section.getInt("max-y", -1);
         long cooldown = section.getLong("cooldown", 300L);
         double price = section.getDouble("price", 0.0);
         boolean enabled = section.getBoolean("enabled", true);
         List<String> lore = section.getStringList("lore");
-        return new WorldConfig(key, displayName, icon, centerX, centerY, centerZ, radius, cooldown, price, enabled, lore);
+        return new WorldConfig(key, displayName, icon, centerX, centerY, centerZ, radius, maxY, cooldown, price, enabled, lore);
     }
 
     public void setWorldCenter(String key, double x, double y, double z) {
@@ -112,6 +113,11 @@ public class ConfigManager {
 
     public void setWorldRadius(String key, double radius) {
         plugin.getConfig().set("worlds." + key + ".radius", radius);
+        plugin.saveConfig();
+    }
+
+    public void setWorldMaxY(String key, int maxY) {
+        plugin.getConfig().set("worlds." + key + ".max-y", maxY);
         plugin.saveConfig();
     }
 

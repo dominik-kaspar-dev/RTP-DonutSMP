@@ -4,7 +4,7 @@
   <groupId>dev.donutsmp</groupId>
   <artifactId>rtp-donutsmp</artifactId>
   <name>RTP-DonutSMP</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <description>RTP plugin for DonutSMP with menu-based world selection.</description>
   <build>
     <plugins>
